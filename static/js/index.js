@@ -250,3 +250,24 @@ const optimizedScrollHandler = debounce(function() {
 
 window.addEventListener('scroll', optimizedScrollHandler);
 
+// Tab switching functionality
+function switchTab(event, tabName) {
+    event.preventDefault();
+
+    // Remove active class from all tabs and content
+    const tabs = document.querySelectorAll('.tabs li');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => tab.classList.remove('is-active'));
+    tabContents.forEach(content => content.classList.remove('is-active'));
+
+    // Add active class to clicked tab and corresponding content
+    const clickedTab = event.currentTarget.parentElement;
+    clickedTab.classList.add('is-active');
+
+    const targetContent = document.getElementById(tabName + '-tab');
+    if (targetContent) {
+        targetContent.classList.add('is-active');
+    }
+}
+

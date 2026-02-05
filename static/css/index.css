@@ -988,4 +988,115 @@ video[poster] {
 
 /* Removed floating background animation that was causing layout issues */
 
+/* Modern Tabs Styling */
+.tabs-container {
+  margin-top: 2rem;
+}
+
+.tabs {
+  margin-bottom: 2rem;
+}
+
+.tabs ul {
+  border-bottom: 2px solid var(--border-color);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tabs li {
+  margin-bottom: -2px;
+}
+
+.tabs li a {
+  border: 2px solid transparent;
+  border-bottom: none;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  transition: var(--transition);
+  font-weight: 600;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.tabs li a:hover {
+  color: var(--primary-color);
+  background: var(--background-secondary);
+}
+
+.tabs li.is-active a {
+  color: var(--primary-color);
+  border-color: var(--border-color);
+  border-bottom-color: white;
+  background: white;
+  position: relative;
+}
+
+.tabs li.is-active a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--primary-color);
+}
+
+/* Tab Content */
+.tab-content-container {
+  position: relative;
+  min-height: 400px;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.tab-content.is-active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile responsive tabs */
+@media screen and (max-width: 768px) {
+  .tabs ul {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tabs li {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .tabs li a {
+    justify-content: center;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .tabs li.is-active a {
+    border: none;
+    border-left: 4px solid var(--primary-color);
+    background: var(--background-secondary);
+  }
+
+  .tabs li.is-active a::after {
+    display: none;
+  }
+}
 

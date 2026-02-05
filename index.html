@@ -461,159 +461,187 @@
 			<div class="hero-body">
 				<div class="container">
 					<h2 class="title is-3">Experiments</h2>
+					<p class="subtitle has-text-centered" style="margin-bottom: 3rem; color: #64748b;">
+						Explore our experimental results across three key capability areas
+					</p>
 
-					<!-- Autonomous Tasks Section -->
-					<div style="margin-bottom: 4rem;">
-						<h3 class="section-title">Autonomous Tasks</h3>
-
-						<!-- Featured: Laundry Transport -->
-						<div style="margin-bottom: 3rem;" class="video-card">
-							<h4 class="subtitle is-5" style="font-weight: 600; margin-bottom: 1rem;">
-								<span style="color: #2563eb;">★</span> Laundry Transport
-							</h4>
-							<div class="video-container featured-video">
-								<div class="publication-video">
-									<iframe src="https://www.youtube.com/embed/GGH2tfxKJCg" frameborder="0"
-										allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								</div>
-								<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
-									<strong>Task:</strong> Laundry Transport | <strong>Speed:</strong> 1x
-								</p>
-							</div>
+					<!-- Tabs Navigation -->
+					<div class="tabs-container">
+						<div class="tabs is-centered is-boxed">
+							<ul>
+								<li class="is-active" data-tab="autonomous">
+									<a onclick="switchTab(event, 'autonomous')">
+										<span class="icon is-small"><i class="fas fa-robot"></i></span>
+										<span>Autonomous Tasks</span>
+									</a>
+								</li>
+								<li data-tab="long-horizon">
+									<a onclick="switchTab(event, 'long-horizon')">
+										<span class="icon is-small"><i class="fas fa-route"></i></span>
+										<span>Long-Horizon Tasks</span>
+									</a>
+								</li>
+								<li data-tab="teleoperation">
+									<a onclick="switchTab(event, 'teleoperation')">
+										<span class="icon is-small"><i class="fas fa-gamepad"></i></span>
+										<span>Teleoperation Tasks</span>
+									</a>
+								</li>
+							</ul>
 						</div>
 
-						<!-- Other Autonomous Tasks Grid -->
-						<div class="video-grid">
-							<!-- Basket Pack -->
-							<div class="video-container video-card">
-								<div class="publication-video">
-									<iframe src="https://www.youtube.com/embed/a6fZkaniu-c" frameborder="0"
-										allow="autoplay; encrypted-media" allowfullscreen></iframe>
+						<!-- Tab Content -->
+						<div class="tab-content-container">
+							<!-- Autonomous Tasks Tab -->
+							<div id="autonomous-tab" class="tab-content is-active">
+								<!-- Featured: Laundry Transport -->
+								<div style="margin-bottom: 3rem;" class="video-card">
+									<h4 class="subtitle is-5" style="font-weight: 600; margin-bottom: 1rem;">
+										<span style="color: #2563eb;">★</span> Featured: Laundry Transport
+									</h4>
+									<div class="video-container featured-video">
+										<div class="publication-video">
+											<iframe src="https://www.youtube.com/embed/GGH2tfxKJCg" frameborder="0"
+												allow="autoplay; encrypted-media" allowfullscreen></iframe>
+										</div>
+										<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+											<strong>Task:</strong> Laundry Transport | <strong>Speed:</strong> 1x
+										</p>
+									</div>
 								</div>
-								<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
-									<strong>Task:</strong> Basket Pack<br>
-									<strong>Speed:</strong> 1x
-								</p>
+
+								<!-- Other Autonomous Tasks Grid -->
+								<div class="video-grid">
+									<!-- Basket Pack -->
+									<div class="video-container video-card">
+										<div class="publication-video">
+											<iframe src="https://www.youtube.com/embed/a6fZkaniu-c" frameborder="0"
+												allow="autoplay; encrypted-media" allowfullscreen></iframe>
+										</div>
+										<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+											<strong>Task:</strong> Basket Pack<br>
+											<strong>Speed:</strong> 1x
+										</p>
+									</div>
+
+									<!-- Hanger Hand-Off -->
+									<div class="video-container video-card">
+										<div class="publication-video">
+											<iframe src="https://www.youtube.com/embed/YRN0sQm0aHs" frameborder="0"
+												allow="autoplay; encrypted-media" allowfullscreen></iframe>
+										</div>
+										<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+											<strong>Task:</strong> Hanger Hand-Off<br>
+											<strong>Speed:</strong> 1x
+										</p>
+									</div>
+
+									<!-- Hanger Hand-Off OOD (Green) - Bilibili -->
+									<div class="video-container video-card">
+										<div class="publication-video">
+											<iframe src="//player.bilibili.com/player.html?bvid=BV1srFezpEDS&page=1"
+												scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+										</div>
+										<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+											<strong>Task:</strong> Hanger Hand-Off (OOD - Green)<br>
+											<strong>Speed:</strong> 1x
+										</p>
+									</div>
+
+									<!-- Hanger Hand-Off OOD (Yellow) -->
+									<div class="video-container video-card">
+										<div class="publication-video">
+											<iframe src="https://www.youtube.com/embed/clA-7EB6MMI" frameborder="0"
+												allow="autoplay; encrypted-media" allowfullscreen></iframe>
+										</div>
+										<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+											<strong>Task:</strong> Hanger Hand-Off (OOD - Yellow)<br>
+											<strong>Speed:</strong> 1x
+										</p>
+									</div>
+								</div>
 							</div>
 
-							<!-- Hanger Hand-Off -->
-							<div class="video-container video-card">
-								<div class="publication-video">
-									<iframe src="https://www.youtube.com/embed/YRN0sQm0aHs" frameborder="0"
-										allow="autoplay; encrypted-media" allowfullscreen></iframe>
+							<!-- Long-Horizon Tasks Tab -->
+							<div id="long-horizon-tab" class="tab-content">
+								<div class="video-grid">
+									<!-- Kitchen -->
+									<div class="video-container video-card">
+										<div class="publication-video">
+											<iframe src="https://www.youtube.com/embed/FN97xXMsuRo" frameborder="0"
+												allow="autoplay; encrypted-media" allowfullscreen></iframe>
+										</div>
+										<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+											<strong>Task:</strong> Kitchen<br>
+											<strong>Speed:</strong> 4x
+										</p>
+									</div>
+
+									<!-- Tool Room -->
+									<div class="video-container video-card">
+										<div class="publication-video">
+											<iframe src="https://www.youtube.com/embed/ppds82GXWh8" frameborder="0"
+												allow="autoplay; encrypted-media" allowfullscreen></iframe>
+										</div>
+										<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+											<strong>Task:</strong> Tool Room<br>
+											<strong>Speed:</strong> 4x
+										</p>
+									</div>
 								</div>
-								<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
-									<strong>Task:</strong> Hanger Hand-Off<br>
-									<strong>Speed:</strong> 1x
-								</p>
 							</div>
 
-							<!-- Hanger Hand-Off OOD (Green) - Bilibili -->
-							<div class="video-container video-card">
-								<div class="publication-video">
-									<iframe src="//player.bilibili.com/player.html?bvid=BV1srFezpEDS&page=1"
-										scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-								</div>
-								<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
-									<strong>Task:</strong> Hanger Hand-Off (OOD - Green)<br>
-									<strong>Speed:</strong> 1x
-								</p>
-							</div>
+							<!-- Teleoperation Tasks Tab -->
+							<div id="teleoperation-tab" class="tab-content">
+								<div class="video-grid">
+									<!-- Blind Carry -->
+									<div class="video-container video-card">
+										<div class="publication-video">
+											<iframe src="https://www.youtube.com/embed/guBLZCiRJPU" frameborder="0"
+												allow="autoplay; encrypted-media" allowfullscreen></iframe>
+										</div>
+										<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+											<strong>Task:</strong> Blind Carry<br>
+											<strong>Speed:</strong> 4x
+										</p>
+									</div>
 
-							<!-- Hanger Hand-Off OOD (Yellow) -->
-							<div class="video-container video-card">
-								<div class="publication-video">
-									<iframe src="https://www.youtube.com/embed/clA-7EB6MMI" frameborder="0"
-										allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								</div>
-								<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
-									<strong>Task:</strong> Hanger Hand-Off (OOD - Yellow)<br>
-									<strong>Speed:</strong> 1x
-								</p>
-							</div>
-						</div>
-					</div>
+									<!-- Guided Reach -->
+									<div class="video-container video-card">
+										<div class="publication-video">
+											<iframe src="https://www.youtube.com/embed/nkqzbrl0R40" frameborder="0"
+												allow="autoplay; encrypted-media" allowfullscreen></iframe>
+										</div>
+										<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+											<strong>Task:</strong> Guided Reach<br>
+											<strong>Speed:</strong> 1x
+										</p>
+									</div>
 
-					<!-- Long-Horizon Tasks Section -->
-					<div style="margin-bottom: 4rem;">
-						<h3 class="section-title">Long-Horizon Tasks</h3>
-						<div class="video-grid">
-							<!-- Kitchen -->
-							<div class="video-container video-card">
-								<div class="publication-video">
-									<iframe src="https://www.youtube.com/embed/FN97xXMsuRo" frameborder="0"
-										allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								</div>
-								<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
-									<strong>Task:</strong> Kitchen<br>
-									<strong>Speed:</strong> 4x
-								</p>
-							</div>
+									<!-- Mobile Swipe -->
+									<div class="video-container video-card">
+										<div class="publication-video">
+											<iframe src="https://www.youtube.com/embed/z-q4cvyVBMg" frameborder="0"
+												allow="autoplay; encrypted-media" allowfullscreen></iframe>
+										</div>
+										<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+											<strong>Task:</strong> Mobile Swipe<br>
+											<strong>Speed:</strong> 1x
+										</p>
+									</div>
 
-							<!-- Tool Room -->
-							<div class="video-container video-card">
-								<div class="publication-video">
-									<iframe src="https://www.youtube.com/embed/ppds82GXWh8" frameborder="0"
-										allow="autoplay; encrypted-media" allowfullscreen></iframe>
+									<!-- Narrow Transport -->
+									<div class="video-container video-card">
+										<div class="publication-video">
+											<iframe src="https://www.youtube.com/embed/4-1XsNPVd2k" frameborder="0"
+												allow="autoplay; encrypted-media" allowfullscreen></iframe>
+										</div>
+										<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
+											<strong>Task:</strong> Narrow Transport<br>
+											<strong>Speed:</strong> 1x
+										</p>
+									</div>
 								</div>
-								<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
-									<strong>Task:</strong> Tool Room<br>
-									<strong>Speed:</strong> 4x
-								</p>
-							</div>
-						</div>
-					</div>
-
-					<!-- Teleoperation Tasks Section -->
-					<div style="margin-bottom: 2rem;">
-						<h3 class="section-title">Teleoperation Tasks</h3>
-						<div class="video-grid">
-							<!-- Blind Carry -->
-							<div class="video-container video-card">
-								<div class="publication-video">
-									<iframe src="https://www.youtube.com/embed/guBLZCiRJPU" frameborder="0"
-										allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								</div>
-								<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
-									<strong>Task:</strong> Blind Carry<br>
-									<strong>Speed:</strong> 4x
-								</p>
-							</div>
-
-							<!-- Guided Reach -->
-							<div class="video-container video-card">
-								<div class="publication-video">
-									<iframe src="https://www.youtube.com/embed/nkqzbrl0R40" frameborder="0"
-										allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								</div>
-								<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
-									<strong>Task:</strong> Guided Reach<br>
-									<strong>Speed:</strong> 1x
-								</p>
-							</div>
-
-							<!-- Mobile Swipe -->
-							<div class="video-container video-card">
-								<div class="publication-video">
-									<iframe src="https://www.youtube.com/embed/z-q4cvyVBMg" frameborder="0"
-										allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								</div>
-								<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
-									<strong>Task:</strong> Mobile Swipe<br>
-									<strong>Speed:</strong> 1x
-								</p>
-							</div>
-
-							<!-- Narrow Transport -->
-							<div class="video-container video-card">
-								<div class="publication-video">
-									<iframe src="https://www.youtube.com/embed/4-1XsNPVd2k" frameborder="0"
-										allow="autoplay; encrypted-media" allowfullscreen></iframe>
-								</div>
-								<p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">
-									<strong>Task:</strong> Narrow Transport<br>
-									<strong>Speed:</strong> 1x
-								</p>
 							</div>
 						</div>
 					</div>
