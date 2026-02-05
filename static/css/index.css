@@ -719,9 +719,80 @@ code {
   }
 }
 
-.hero, .section {
-  animation: fadeInUp 0.6s ease-out;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero, .section {
+  animation: none;
+}
+
+/* Scroll-triggered animations */
+.animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation for video cards */
+.video-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out, box-shadow 0.3s ease;
+}
+
+.video-card.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.video-card:nth-child(1) { transition-delay: 0s; }
+.video-card:nth-child(2) { transition-delay: 0s; }
+.video-card:nth-child(3) { transition-delay: 0s; }
+.video-card:nth-child(4) { transition-delay: 0s; }
 
 /* Improved focus states for accessibility */
 .button:focus,
@@ -737,11 +808,11 @@ a:focus {
   .more-works-container {
     display: none;
   }
-  
+
   .hero, .section {
     animation: none;
   }
-  
+
   .button {
     background: transparent !important;
     color: var(--text-primary) !important;
@@ -749,5 +820,172 @@ a:focus {
   }
 }
 
+/* Modern Video Card Styles */
+.video-container {
+  background: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.video-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.video-container:hover::before {
+  transform: scaleX(1);
+}
+
+.video-container:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--primary-color);
+}
+
+.video-container video {
+  width: 100%;
+  border-radius: var(--border-radius);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.video-container:hover video {
+  transform: scale(1.02);
+}
+
+.video-container p {
+  margin-top: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.video-container strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Featured video card */
+.featured-video {
+  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  border: 2px solid var(--primary-color);
+  box-shadow: var(--shadow-lg);
+}
+
+.featured-video::before {
+  height: 4px;
+}
+
+/* Section title with modern styling */
+.section-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 100%;
+  background: var(--gradient-accent);
+  border-radius: 2px;
+}
+
+/* Grid layout improvements */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .video-container {
+    padding: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Teaser video enhancement */
+.teaser video {
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-xl);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.teaser video:hover {
+  transform: scale(1.01);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+/* Abstract section enhancement */
+.content.has-text-justified {
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--primary-color);
+}
+
+/* Link hover effects */
+.publication-links .link-block {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.publication-links .link-block:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth transitions for interactive elements only */
+button, a, input, select, textarea, .button, .video-container, .work-item {
+  transition-duration: 0.3s;
+}
+
+/* Video styling - removed loading animation to fix display issues */
+video {
+  display: block;
+}
+
+video[poster] {
+  background: none;
+}
+
+/* Parallax effect for hero section - Disabled to fix layout issues */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Removed floating background animation that was causing layout issues */
 
 

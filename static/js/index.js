@@ -133,10 +133,120 @@ $(document).ready(function() {
 
 	// Initialize all div with carousel class
     var carousels = bulmaCarousel.attach('.carousel', options);
-	
+
     bulmaSlider.attach();
-    
+
     // Setup video autoplay for carousel
     setupVideoCarouselAutoplay();
 
+    // Initialize scroll animations
+    initScrollAnimations();
+
+    // Initialize video lazy loading
+    initVideoLazyLoading();
 })
+
+// Scroll-triggered animations - simplified to avoid layout issues
+function initScrollAnimations() {
+    const animateElements = document.querySelectorAll('.video-card');
+
+    if (animateElements.length === 0) return;
+
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            }
+        });
+    }, observerOptions);
+
+    animateElements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Removed parallax effects to fix layout issues
+
+// Lazy loading for videos
+function initVideoLazyLoading() {
+    const videos = document.querySelectorAll('video[data-src]');
+
+    if (videos.length === 0) return;
+
+    const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const video = entry.target;
+                const source = video.querySelector('source');
+
+                if (source && video.dataset.src) {
+                    source.src = video.dataset.src;
+                    video.load();
+                    delete video.dataset.src;
+                }
+
+                videoObserver.unobserve(video);
+            }
+        });
+    }, {
+        rootMargin: '50px'
+    });
+
+    videos.forEach(video => {
+        videoObserver.observe(video);
+    });
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && href !== '') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+});
+
+// Add hover effect to video containers
+document.addEventListener('DOMContentLoaded', function() {
+    const videoContainers = document.querySelectorAll('video');
+
+    videoContainers.forEach(video => {
+        video.addEventListener('mouseenter', function() {
+            this.style.transition = 'transform 0.3s ease';
+        });
+    });
+});
+
+// Performance optimization: Debounce scroll events
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Optimized scroll handler
+const optimizedScrollHandler = debounce(function() {
+    // Any scroll-based calculations here
+}, 10);
+
+window.addEventListener('scroll', optimizedScrollHandler);
+
